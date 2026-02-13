@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../INST630/metro-map"
+		},
+		{
+			"path": "../../crossword-designer"
+		},
+		{
+			"path": "../../Portfolio"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Portfolio"
+	}
+}
