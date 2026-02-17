@@ -15,7 +15,8 @@
       "@features": ["src/features"],
       "@pages": ["src/app/pages"],
       "@routes": ["src/app/routes"],
-      "@styles": ["src/styles"]
+      "@styles": ["src/styles"],
+      "@models": ["src/models"]
     },
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,

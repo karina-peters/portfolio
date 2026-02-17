@@ -5,7 +5,7 @@ export function Projects() {
   return (
     <section id="projects">
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-        <h1 className="text-4xl font-bold">Projects</h1>
+        <h2 className="text-4xl font-bold">Projects</h2>
       </div>
       <ul>
         {caseStudies.map((cs) => (
