@@ -1,12 +1,16 @@
-import { About, Experience, Education, Certifications } from "@features";
+import { About, Certifications, Experience, Education, Projects } from "@features";
+import { Navbar } from "~/components";
+import {} from "~/features/Projects";
 
-export function Home() {
+export default function Home() {
   return (
     <main>
+      <Navbar />
       <About />
       <Experience />
       <Education />
       <Certifications />
+      <Projects />
     </main>
   );
 }

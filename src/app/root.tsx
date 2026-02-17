@@ -1,5 +1,6 @@
 import { Meta, Links, Outlet, Scripts, ScrollRestoration } from "react-router";
-import { Navbar, Footer } from "@components";
+import { Footer } from "@components";
+import "~/styles/global.css";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -22,7 +23,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <div className="app">
-      <Navbar />
       <Outlet />
       <Footer />
     </div>
