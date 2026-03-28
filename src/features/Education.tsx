@@ -1,38 +1,38 @@
-import { type DegreeData } from "@models";
+import { type DegreeData, type NodeData } from "@models";
+import { Node } from "@components";
 
 const degrees: DegreeData[] = [
   {
+    id: "degree-umich-cs",
     degree: "B.S. Computer Science",
     institution: "University of Michigan",
     startDate: "August 2017",
     endDate: "May 2021",
-    description: "",
+    description: "Minor in Art & Design",
   },
   {
+    id: "degree-umd-hci",
     degree: "M.S. Human-Computer Interaction",
     institution: "University of Maryland",
     startDate: "August 2024",
     endDate: "Present",
-    description: "",
+    description: "Focus on Accessibility and Inclusive Design",
   },
 ];
 
 export function Education() {
   return (
     <section id="education">
-      <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-        <h2 className="text-4xl font-bold">Education</h2>
-        {degrees.map((degree, index) => (
-          <div key={index} className="w-full max-w-2xl">
-            <h3 className="text-2xl font-semibold">
-              {degree.degree} · {degree.institution}
-            </h3>
-            <p className="text-sm text-gray-600">
-              {degree.startDate} - {degree.endDate}
-            </p>
-            <p className="mt-2">{degree.description}</p>
-          </div>
-        ))}
+      <h2>Education</h2>
+      <div className="flex flex-col gap-4">
+        {degrees.map((degree) => {
+          const node: NodeData = {
+            title: `${degree.degree} · ${degree.institution}`,
+            subtitles: [degree.description],
+          };
+
+          return <Node data={node} />;
+        })}
       </div>
     </section>
   );

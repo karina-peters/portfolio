@@ -22,7 +22,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <div className="app">
+    <div className="app flex flex-col min-h-screen">
       <Outlet />
       <Footer />
     </div>

@@ -1,8 +1,9 @@
-import { PositionDetail } from "@components";
-import { type ExperienceData } from "@models";
+import { Node, TextNode } from "@components";
+import { type ExperienceData, type NodeData } from "@models";
 
 const positions: ExperienceData[] = [
   {
+    id: "exp-thomson-reuters",
     title: "Software Engineer",
     company: "Thomson Reuters",
     priorTitles: ["Asscociate Software Engineer", "Software Development Intern"],
@@ -15,17 +16,28 @@ const positions: ExperienceData[] = [
       amet sed id. Nunc sed nunc aenean in. Donec nunc tristique amet consectetur. 
       Enim sed sed ut elementum.`,
     tools: [],
+    link: "https://tax.thomsonreuters.com/en/tax-accounting",
   },
 ];
 
 export function Experience() {
   return (
     <section id="experience">
-      <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-        <h2 className="text-4xl font-bold">Experience</h2>
-        {positions.map((position, index) => (
-          <PositionDetail key={index} data={position} />
-        ))}
+      <h2>Experience</h2>
+      <div className="flex flex-col gap-4">
+        {positions.map((position) => {
+          return (
+            <Node
+                  data={{
+                    title: `${position.title} · ${position.company}`,
+                    subtitles: position.priorTitles,
+                    content: position.description,
+                    tags: position.tools?.map((tool) => tool.name),
+                    href: position.link,
+                  }}
+                />
+          );
+        })}
       </div>
     </section>
   );

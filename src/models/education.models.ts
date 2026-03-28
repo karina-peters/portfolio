@@ -1,4 +1,5 @@
 export type DegreeData = {
+  id: string;
   degree: string;
   institution: string;
   startDate: string;
