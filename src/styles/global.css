@@ -2,21 +2,29 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-  --content-width: 70%;
+  --content-width: 62%;
 
   --color-neutral-5: #faf9fd;
-  --color-neutral-10: #f6f5fa;
-  --color-neutral-20: #e8e6f0;
-  --color-neutral-30: #d9d7e5;
-  --color-neutral-40: #cac8db;
-  --color-neutral-50: #bbb9d0;
-  --color-neutral-60: #9a98b5;
-  --color-neutral-70: #787699;
-  --color-neutral-80: #565a7a;
-  --color-neutral-90: #344053;
-  --color-neutral-95: #1e2632;
+  --color-neutral-10: #f5f5f8;
+  --color-neutral-15: #f0eff4;
+  --color-neutral-20: #e6e5eb;
+  --color-neutral-25: #dddce3;
+  --color-neutral-30: #d6d5de;
+  --color-neutral-35: #cfcdd8;
+  --color-neutral-40: #c6c5d0;
+  --color-neutral-45: #bdbcc9;
+  --color-neutral-50: #b5b4c8;
+  --color-neutral-55: #a8a7b8;
+  --color-neutral-60: #949299;
+  --color-neutral-65: #837f8c;
+  --color-neutral-70: #726f80;
+  --color-neutral-75: #636071;
+  --color-neutral-80: #545268;
+  --color-neutral-85: #464e5c;
+  --color-neutral-90: #2c3443;
+  --color-neutral-95: #1c2430;
 }
 
 html,
@@ -28,10 +36,78 @@ body {
   }
 }
 
+main {
+  @apply w-(--content-width) col-span-5 flex flex-col gap-12 pr-16 pb-16;
+}
+
 h1 {
-  @apply font-mono font-semibold text-2xl text-neutral-90 dark:text-neutral-10;
+  @apply font-mono font-semibold text-3xl text-neutral-90 dark:text-neutral-10 mb-2;
 }
 
 h2 {
-  @apply font-mono font-semibold text-lg text-neutral-90 dark:text-neutral-10 mb-4;
+  @apply font-mono font-medium text-lg text-neutral-80 dark:text-neutral-40 mb-4;
+}
+
+h3 {
+  @apply font-mono font-semibold text-neutral-90 dark:text-neutral-5;
+}
+
+p {
+  @apply text-base/7 text-neutral-95 dark:text-neutral-30;
+}
+
+.side-nav {
+  @apply col-start-4 gap-8 py-8 flex flex-col font-mono font-medium text-neutral-70 dark:text-neutral-70;
+}
+.side-nav .nav-item {
+  @apply flex flex-row gap-4 items-center hover:text-neutral-95 dark:hover:text-neutral-5 cursor-pointer;
+}
+.side-nav .nav-item .indicator {
+  @apply hidden opacity-0 transition-opacity duration-100 ease-in-out;
+}
+.side-nav .nav-item.active {
+  @apply text-neutral-95 dark:text-neutral-5;
+}
+.side-nav .nav-item.active .indicator {
+  @apply block opacity-100 transition-opacity delay-20 duration-100 ease-in-out;
+}
+
+.section {
+  @apply py-4;
+}
+
+.rounded-box {
+  @apply bg-white dark:bg-neutral-90 text-neutral-95 dark:text-neutral-5 rounded-md outline-[1.5px] outline-neutral-90 dark:outline-neutral-30 px-5 py-5;
+}
+.rounded-box .box-header {
+  @apply flex flex-col gap-1;
+}
+.rounded-box .box-header .box-title {
+  @apply mb-1;
+}
+.rounded-box .box-header .title-aside {
+  @apply font-medium text-neutral-90 dark:text-neutral-40;
+}
+.rounded-box .box-header .date-label {
+  @apply font-medium text-neutral-90 dark:text-neutral-40;
+}
+.rounded-box .box-header .subtitle {
+  @apply font-mono text-[0.925rem] font-medium text-neutral-65 dark:text-neutral-40;
+}
+.rounded-box .box-content {
+  @apply mt-5;
+}
+
+.box-links {
+  @apply mt-6 flex flex-wrap gap-2;
+}
+
+.pill {
+  @apply inline-flex items-center gap-3 rounded-md font-mono text-sm font-medium px-4 py-2;
+}
+.pill.primary {
+  @apply bg-neutral-90 dark:bg-neutral-30 text-neutral-5 dark:text-neutral-90;
+}
+.pill.secondary {
+  @apply bg-neutral-10 dark:bg-neutral-70 text-neutral-90 dark:text-neutral-30 outline-[1.5px] outline-offset-[-1px] outline-neutral-90 dark:outline-neutral-30;
 }

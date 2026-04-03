@@ -1,5 +1,5 @@
-import { type CertData, type NodeData } from "@models";
-import { Node } from "@components";
+import { type CertData, type ContainerData } from "@models";
+import { Container } from "@components";
 
 const certifications: CertData[] = [
   {
@@ -16,12 +16,12 @@ export function Certifications() {
     <section id="certifications">
       <div className="">
         {certifications.map((cert) => {
-          const node: NodeData = {
+          const node: ContainerData = {
             title: `${cert.name} · ${cert.institution}`,
             subtitles: [cert.description],
           };
 
-          return <Node data={node} />;
+          return <Container data={node} />;
         })}
       </div>
     </section>
