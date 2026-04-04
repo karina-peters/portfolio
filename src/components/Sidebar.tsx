@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 const ICON_SIZE = 24;
 
 const sections = [
-  { index: 0, label: "About", href: "/#about" },
-  { index: 1, label: "Experience", href: "/#experience" },
-  { index: 2, label: "Education", href: "/#education" },
-  { index: 3, label: "Projects", href: "/#projects" },
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "education", label: "Education" },
+  { id: "projects", label: "Projects" },
 ];
 
-export function Sidebar({ activeSection }: { activeSection: string }) {
+export function Sidebar({ activeSection, onNavClick }: { activeSection: string; onNavClick: (sectionId: string) => void }) {
   return (
     <header className="flex flex-col justify-between h-lvh sticky top-0 py-18 pl-16">
       <div className="">
@@ -18,16 +18,16 @@ export function Sidebar({ activeSection }: { activeSection: string }) {
       </div>
       <nav className="side-nav">
         {sections.map((section) => {
-          const isActive = section.href === `/#${activeSection}`;
+          const isActive = section.id === activeSection;
 
           return (
-            <div key={section.index} className={`nav-item ${isActive ? "active" : ""}`}>
+            <div key={section.id} className={`nav-item ${isActive ? "active" : ""}`} onClick={() => onNavClick(section.id)}>
               <div className="indicator">
                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2z" />
                 </svg>
               </div>
-              <Link to={section.href}>{section.label}</Link>
+              <Link to={`/#${section.id}`}>{section.label}</Link>
             </div>
           );
         })}
