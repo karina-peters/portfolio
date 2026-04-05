@@ -4,5 +4,5 @@ export type DegreeData = {
   institution: string;
   startDate: string;
   endDate: string;
-  description: string;
+  description?: string;
 };

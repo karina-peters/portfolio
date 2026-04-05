@@ -5,6 +5,7 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   --content-width: 62%;
+  --border-width: 2px;
 
   --color-neutral-5: #faf9fd;
   --color-neutral-10: #f5f5f8;
@@ -45,7 +46,7 @@ h1 {
 }
 
 h2 {
-  @apply font-mono font-medium text-lg text-neutral-80 dark:text-neutral-40 mb-4;
+  @apply font-mono font-semibold text-lg text-neutral-90 dark:text-neutral-40 mb-4;
 }
 
 h3 {
@@ -66,7 +67,7 @@ p {
   @apply opacity-0 w-0 overflow-hidden transition-all duration-300 ease-in-out;
 }
 .side-nav .nav-item.active {
-  @apply text-neutral-95 dark:text-neutral-5;
+  @apply font-semibold text-neutral-95 dark:text-neutral-5;
 }
 .side-nav .nav-item.active .indicator {
   @apply opacity-100 w-3;
@@ -77,37 +78,45 @@ p {
 }
 
 .rounded-box {
-  @apply bg-white dark:bg-neutral-90 text-neutral-95 dark:text-neutral-5 rounded-md outline-[1.75px] outline-neutral-80 dark:outline-neutral-30 px-5 py-5;
+  @apply bg-white dark:bg-neutral-90 text-neutral-95 dark:text-neutral-5 rounded-md border-(length:--border-width) border-neutral-80 dark:border-neutral-30 py-5;
 }
 .rounded-box .box-header {
-  @apply flex flex-col gap-1;
+  @apply flex flex-col gap-2 font-mono px-5;
 }
 .rounded-box .box-header .box-title {
-  @apply mb-1;
+  @apply tracking-tight;
 }
 .rounded-box .box-header .title-aside {
-  @apply font-medium text-neutral-90 dark:text-neutral-40;
+  @apply font-medium tracking-normal text-neutral-90 dark:text-neutral-40;
 }
 .rounded-box .box-header .date-label {
   @apply font-medium tracking-tight text-neutral-90 dark:text-neutral-40;
 }
+.rounded-box .box-header .box-subtitles {
+  @apply flex flex-col gap-1;
+}
 .rounded-box .box-header .subtitle {
-  @apply font-mono text-[0.925rem] tracking-tight font-medium text-neutral-65 dark:text-neutral-40;
+  @apply font-medium tracking-normal text-[0.925rem] text-neutral-65 dark:text-neutral-40;
 }
 .rounded-box .box-content {
-  @apply mt-5;
+  @apply mt-5 px-5;
 }
-
-.box-links {
-  @apply mt-6 flex flex-wrap gap-2;
+.rounded-box .box-footer {
+  @apply flex flex-wrap gap-3 /* border-t-(length:--border-width) border-neutral-80 dark:border-neutral-30*/ mt-5 px-5;
 }
 
 .pill {
-  @apply inline-flex items-center gap-3 rounded-md font-mono text-sm font-medium px-4 py-2;
+  @apply h-8 inline-flex items-center gap-2 rounded-md font-mono text-sm font-medium px-3;
 }
 .pill.primary {
   @apply bg-neutral-90 dark:bg-neutral-20 text-neutral-5 dark:text-neutral-90;
 }
 .pill.secondary {
-  @apply bg-neutral-10 dark:bg-neutral-85 text-neutral-90 dark:text-neutral-10 outline-[1.75px] outline-offset-[-1px] outline-neutral-70 dark:outline-neutral-30;
+  @apply bg-neutral-25 dark:bg-neutral-85 text-neutral-90 dark:text-neutral-10 /*border-(length:--border-width) border-neutral-85 dark:border-neutral-30*/;
+}
+.pill.primary:hover {
+  @apply bg-neutral-85 dark:bg-neutral-30;
+}
+.pill.secondary:hover {
+  @apply bg-neutral-30 dark:bg-neutral-80 /*border-(length:--border-width) border-neutral-80 dark:border-neutral-30*/;
 }

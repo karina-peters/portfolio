@@ -16,7 +16,7 @@ const degrees: DegreeData[] = [
     institution: "Department of Homeland Security",
     startDate: "2025",
     endDate: "2025",
-    description: "Evaluation of web content for Section 508 conformance",
+    // description: "Evaluation of web content for Section 508 conformance",
   },
   {
     id: "degree-umich-cs",
@@ -35,10 +35,10 @@ export function Education() {
       <div className="flex flex-col gap-4">
         {degrees.map((degree) => {
           const node: ContainerData = {
-            date: `${degree.endDate}`,
+            date: `${degree.startDate}${degree.endDate !== degree.startDate ? ` - ${degree.endDate}` : ""}`,
             title: `${degree.degree}`,
             titleAside: `${degree.institution}`,
-            subtitles: [degree.description],
+            subtitles: degree.description ? [degree.description] : [],
           };
 
           return <Container data={node} />;
